@@ -1,0 +1,13 @@
+---
+version: 5
+
+defaults:  # Used for any hierarchy level that omits these keys.
+  datadir: data         # This path is relative to hiera.yaml's directory.
+  data_hash: yaml_data  # Use the built-in YAML backend.
+
+hierarchy:
+  - name: 'module-data'  # matches installdir for module from the control repo
+    datadir: ../../modules-data/groups_data  # this path is relative to this file on disk.  we get out of */modules/module_code/.
+    path: 'common.yaml'
+  - name: 'common'
+    path: 'common.yaml'
